@@ -1,11 +1,11 @@
 package co.copper.testtask.external;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Month;
-
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
 
 
 @Service
@@ -21,9 +21,12 @@ public class ExternalApproveService {
             return -1;
         }
 
+        log.info(" =====approve======> Date {} , Year {} , Value {} Type {}", object.getDate() , object.getYear() , object.getValue() , object.getType());
         int code;
         switch (object.getType()) {
-            case ASSET: code = approveAsset(object); break;
+            case ASSET: code = approveAsset(object);
+            log.info("====code===={}",code);
+            break;
             default: code = -100;
         }
 
@@ -31,6 +34,7 @@ public class ExternalApproveService {
     }
 
     private int approveAsset(CollateralObject object) {
+        log.info ( "Check ====approveAsset=======>{}",object.getDate() , object.getYear() , object.getValue());
         if (object.getYear() < MIN_ASSET_YEAR) {
             return -10;
         }

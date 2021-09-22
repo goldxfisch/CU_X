@@ -12,7 +12,9 @@ repositories {
     mavenCentral()
 }
 
+
 dependencies {
+
     compile 'org.projectlombok:lombok:1.18.10'
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
 
@@ -20,6 +22,16 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.2'
     compile 'org.springframework.boot:spring-boot-starter-web:2.5.2'
     compile 'com.h2database:h2:1.4.200'
+
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.5.4'
+
+    // https://mvnrepository.com/artifact/io.rest-assured/rest-assured
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.3'
+
+
+
 }
 
 test {

@@ -1,15 +1,17 @@
 package co.copper.testtask.service;
 
-import java.util.Optional;
-
 import co.copper.testtask.dto.AssetDto;
 import co.copper.testtask.dto.Collateral;
 import co.copper.testtask.service.asset.AssetService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 
 // TODO: reimplement this
+@Slf4j
 @Service
 public class CollateralService {
     @Autowired
@@ -17,6 +19,7 @@ public class CollateralService {
 
     @SuppressWarnings("ConstantConditions")
     public Long saveCollateral(Collateral object) {
+        log.info("========>{}", object.toString());
         if (!(object instanceof AssetDto)) {
             throw new IllegalArgumentException();
         }

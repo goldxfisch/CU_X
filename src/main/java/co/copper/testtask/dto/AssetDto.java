@@ -1,13 +1,14 @@
 package co.copper.testtask.dto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+import java.math.BigDecimal;
 
+@Slf4j
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,4 +19,5 @@ public class AssetDto implements Collateral {
     private String currency;
     private Short year;
     private BigDecimal value;
+
 }
